@@ -67,14 +67,3 @@ app.post("/market", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
-// 🔹 Melhor bid = maior preço
-// 🔹 Melhor ask = menor preço
-// // mid-price = (melhor bid + melhor ask) / 2
-// Na documentação da Blockchain Exchange API (endpoint /exchange/l2/{symbol}), o padrão é:
-// bids → ordenados do maior para o menor preço (descendente)
-// asks → ordenados do menor para o maior preço (ascendente)
-// Ou seja, conceitualmente:
-// bids[0] → melhor bid
-// asks[0] → melhor ask
-// Já foi feito npm init npm i express npm i axios npm i body-parser npm i ejs changed type to module
