@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capstone BLOCKCHAIN API</title>
+  </head>
+  <body>
+    <h1>Hi there! Choose a currency!</h1>
+
+    <form action="/market" method="POST">
+<select name="symbol">
+  <% for (const pair of pairs) { %>
+    <option value="<%= pair.symbol %>">
+      <%= pair.label %>
+    </option>
+  <% } %>
+</select>
+<button type="submit">
+    Get Market Data
+</button>
+</form>
+<% if (marketData === null) {%>
+<%=error%>
+<%}%>
+<%if (marketData) {%>
+   <b> Currency:<%=marketData.symbol%></b></br>
+<b> Bid Price:</b>    <%= marketData.bid.price%></br>
+<b> Bid Quantity:</b> <%= marketData.bid.quantity%></br>
+<b> Ask Price:</b> <%= marketData.ask.price%></br>
+<b> Ask Quantity:</b> <%= marketData.ask.quantity%></br>
+<b> Mid Price:</b> <%= marketData.midPrice%>
+<%}%> 
+
+  </body>
+</html>
